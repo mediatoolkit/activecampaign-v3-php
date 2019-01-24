@@ -1,0 +1,4 @@
+.idea
+/vendor/
+/tests/bootstrap.php
+/composer.lock

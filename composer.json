@@ -1,0 +1,27 @@
+{
+  "name": "mediatoolkit/activecampaign-v3-php",
+  "description": "PHP Wrapper for ActiveCampaign",
+  "require": {
+    "guzzlehttp/guzzle": "~6.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mediatoolkit",
+      "email": "info@mediatoolkit.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Mediatoolkit\\ActiveCampaign\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Mediatoolkit\\Tests\\": "tests/"
+    }
+  }
+}
