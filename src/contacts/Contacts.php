@@ -155,8 +155,10 @@ class Contacts extends Resource
             ->getClient()
             ->post('/api/3/contactTags', [
                 'json' => [
-                    'contact' => $id,
-                    'tag' => $tag_id
+                    "contactTag" => [
+                        'contact' => $id,
+                        'tag' => $tag_id
+                    ]
                 ]
             ]);
 
