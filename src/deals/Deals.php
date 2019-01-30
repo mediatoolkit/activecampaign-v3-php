@@ -107,4 +107,84 @@ class Deals extends Resource
         return $req->getBody()->getContents();
     }
 
+    /**
+     * Create a deal custom field value
+     * @see https://developers.activecampaign.com/v3/reference#create-dealcustomfielddata-resource
+     * 
+     * @param int $deal_id
+     * @param int $field_id
+     * @param $field_value
+     * @return string
+     */
+    public function createCustomFieldValue(int $deal_id, int $field_id, $field_value)
+    {
+        $req = $this->client
+            ->getClient()
+            ->post('/api/3/dealCustomFieldData', [
+                'json' => [
+                    'dealCustomFieldDatum' => [
+                        'dealId' => $deal_id,
+                        'custom_field_id' => $field_id,
+                        'fieldValue' => $field_value
+                    ]
+                ]
+            ]);
+
+        return $req->getBody()->getContents();
+    }
+
+    /**
+     * Retrieve a custom field value
+     * @see https://developers.activecampaign.com/v3/reference#retrieve-a-dealcustomfielddata
+     * @param int $custom_field_id
+     * @return string
+     */
+    public function retrieveCustomFieldValue(int $custom_field_id)
+    {
+        $req = $this->client
+            ->getClient()
+            ->get('/api/3/dealCustomFieldData/' . $custom_field_id);
+
+        return $req->getBody()->getContents();
+    }
+
+    /**
+     * Update a custom field value
+     * @see https://developers.activecampaign.com/v3/reference#update-a-dealcustomfielddata-resource
+     *
+     * @param int $custom_field_id
+     * @param $field_value
+     * @return string
+     */
+    public function updateCustomFieldValue(int $custom_field_id, $field_value)
+    {
+        $req = $this->client
+            ->getClient()
+            ->put('/api/3/dealCustomFieldData/' . $custom_field_id, [
+                'json' => [
+                    'dealCustomFieldDatum' => [
+                        'fieldValue' => $field_value
+                    ]
+                ]
+            ]);
+
+        return $req->getBody()->getContents();
+    }
+
+    /**
+     * Delete a custom field value
+     * @see https://developers.activecampaign.com/v3/reference#retrieve-a-dealcustomfielddata-resource
+     *
+     * @param int $custom_field_id
+     * @return string
+     */
+    public function deleteCustomFieldValue(int $custom_field_id)
+    {
+        $req = $this->client
+            ->getClient()
+            ->delete('/api/3/dealCustomFieldData/' . $custom_field_id);
+
+        return $req->getBody()->getContents();
+    }
+
 }
