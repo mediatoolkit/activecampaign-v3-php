@@ -187,4 +187,18 @@ class Deals extends Resource
         return $req->getBody()->getContents();
     }
 
+    /**
+     * List all custom fields
+     * @see https://developers.activecampaign.com/reference#retrieve-all-dealcustomfielddata-resources
+     * @return string
+     */
+    public function listAllCustomFields()
+    {
+        $req = $this->client
+            ->getClient()
+            ->get('/api/3/dealCustomFieldMeta');
+
+        return $req->getBody()->getContents();
+    }
+
 }
