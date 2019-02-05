@@ -305,4 +305,19 @@ class Contacts extends Resource
         return 200 === $req->getStatusCode();
     }
 
+    /**
+     * Remove contact from automation
+     * @see https://developers.activecampaign.com/reference#delete-a-contactautomation
+     * @param int $contactAutomationId
+     * @return bool
+     */
+    public function removeAutomation(int $contactAutomationId)
+    {
+        $req = $this->client
+            ->getClient()
+            ->delete('/api/3/contactAutomation/' . $contactAutomationId);
+
+        return 200 === $req->getStatusCode();
+    }
+
 }

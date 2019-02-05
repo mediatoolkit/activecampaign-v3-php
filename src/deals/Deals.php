@@ -201,4 +201,49 @@ class Deals extends Resource
         return $req->getBody()->getContents();
     }
 
+    /**
+     * List all custom field values
+     * @see https://developers.activecampaign.com/reference#list-all-custom-field-values
+     * @param array $query_params
+     * @return string
+     */
+    public function listAllCustomFieldValues(array $query_params)
+    {
+        $req = $this->client
+            ->getClient()
+            ->get('/api/3/dealCustomFieldData', [
+                'query' => $query_params
+            ]);
+
+        return $req->getBody()->getContents();
+    }
+
+    /**
+     * List all pipelines
+     * @see https://developers.activecampaign.com/reference#list-all-pipelines
+     * @return string
+     */
+    public function listAllPipelines()
+    {
+        $req = $this->client
+            ->getClient()
+            ->get('/api/3/dealGroups');
+
+        return $req->getBody()->getContents();
+    }
+
+    /**
+     * List all stages
+     * @see https://developers.activecampaign.com/reference#list-all-deal-stages
+     * @return string
+     */
+    public function listAllStages()
+    {
+        $req = $this->client
+            ->getClient()
+            ->get('/api/3/dealStages');
+
+        return $req->getBody()->getContents();
+    }
+
 }
