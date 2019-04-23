@@ -4,13 +4,13 @@ Unofficial PHP Wrapper for ActiveCampaign API v3.
 
 ## Installation:
 ```
-composer require mediatoolkit/activecampaign-v3-php
+composer require inspirum/active-campaign-php
 ```
 
 ## Basic usage:
 #### Create a client:
 
-```
+```php
 $client = new Client(
     $api_url, 
     $api_token, 
@@ -25,11 +25,11 @@ $contacts = new Contacts($client);
 ```
 
 #### Create new contact:
-```
+```php
 $contact = $contacts->create([
-    'email' => 'CONTACT_EMAIL',
+    'email'     => 'CONTACT_EMAIL',
     'firstName' => 'CONTACT_FIRST_NAME',
-    'lastName' => 'CONTACT_LAST_NAME'
+    'lastName'  => 'CONTACT_LAST_NAME'
 ]);
 ```
 
