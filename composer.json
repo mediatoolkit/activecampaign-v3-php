@@ -1,5 +1,5 @@
 {
-  "name": "mediatoolkit/activecampaign-v3-php",
+  "name": "inspirum/active-campaign-php",
   "description": "PHP Wrapper for ActiveCampaign",
   "require": {
     "guzzlehttp/guzzle": "~6.3"
@@ -12,6 +12,10 @@
     {
       "name": "Mediatoolkit",
       "email": "info@mediatoolkit.com"
+    },
+    {
+      "name": "Tomas Novotny",
+      "email": "tomas.novotny@inspirum.cz"
     }
   ],
   "autoload": {
