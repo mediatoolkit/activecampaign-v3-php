@@ -67,13 +67,16 @@ class EventTracking extends Resource
      * List all events
      * @see https://developers.activecampaign.com/v3/reference#list-all-event-types
      *
+     * @param array $query_params
      * @return string
      */
-    public function listAllEvents()
+    public function listAllEvents(array $query_params = [])
     {
         $req = $this->client
             ->getClient()
-            ->get('api/3/eventTrackingEvents');
+            ->get('api/3/eventTrackingEvents', [
+                'query' => $query_params
+            ]);
 
         return $req->getBody()->getContents();
     }

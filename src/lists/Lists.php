@@ -36,9 +36,10 @@ class Lists extends Resource
      * Retrieve all lists or a list when id is not null
      * @see https://developers.activecampaign.com/reference#retrieve-a-list
      * @param null $id
+     * @param array $query_params
      * @return string
      */
-    public function retrieve($id = null)
+    public function retrieve($id = null, array $query_params = [])
     {
         $uri = '/api/3/lists';
         if (!is_null($id)) {
@@ -46,7 +47,9 @@ class Lists extends Resource
         }
         $req = $this->client
             ->getClient()
-            ->get($uri);
+            ->get($uri,  [
+                'query' => $query_params
+            ]);
 
         return $req->getBody()->getContents();
     }
