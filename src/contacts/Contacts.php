@@ -79,7 +79,7 @@ class Contacts extends Resource
     {
         $req = $this->client
             ->getClient()
-            ->post('', [
+            ->post('/api/3/contactLists', [
                 'json' => [
                     'contactList' => $contact_list
                 ]
