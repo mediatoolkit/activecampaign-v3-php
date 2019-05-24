@@ -209,13 +209,16 @@ class Contacts extends Resource
     /**
      * List all custom fields
      * @see https://developers.activecampaign.com/v3/reference#retrieve-fields-1
+     * @param array $query_params
      * @return string
      */
-    public function listAllCustomFields()
+    public function listAllCustomFields(array $query_params = [])
     {
         $req = $this->client
             ->getClient()
-            ->get('/api/3/fields');
+            ->get('/api/3/fields', [
+                'query' => $query_params
+            ]);
 
         return $req->getBody()->getContents();
     }

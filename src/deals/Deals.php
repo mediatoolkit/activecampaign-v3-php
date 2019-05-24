@@ -190,13 +190,16 @@ class Deals extends Resource
     /**
      * List all custom fields
      * @see https://developers.activecampaign.com/reference#retrieve-all-dealcustomfielddata-resources
+     * @param array $query_params
      * @return string
      */
-    public function listAllCustomFields()
+    public function listAllCustomFields(array $query_params = [])
     {
         $req = $this->client
             ->getClient()
-            ->get('/api/3/dealCustomFieldMeta');
+            ->get('/api/3/dealCustomFieldMeta', [
+                'query' => $query_params
+            ]);
 
         return $req->getBody()->getContents();
     }
@@ -221,13 +224,16 @@ class Deals extends Resource
     /**
      * List all pipelines
      * @see https://developers.activecampaign.com/reference#list-all-pipelines
+     * @param array $query_params
      * @return string
      */
-    public function listAllPipelines()
+    public function listAllPipelines(array $query_params = [])
     {
         $req = $this->client
             ->getClient()
-            ->get('/api/3/dealGroups');
+            ->get('/api/3/dealGroups', [
+                'query' => $query_params
+            ]);
 
         return $req->getBody()->getContents();
     }
@@ -235,13 +241,16 @@ class Deals extends Resource
     /**
      * List all stages
      * @see https://developers.activecampaign.com/reference#list-all-deal-stages
+     * @param array $query_params
      * @return string
      */
-    public function listAllStages()
+    public function listAllStages(array $query_params = [])
     {
         $req = $this->client
             ->getClient()
-            ->get('/api/3/dealStages');
+            ->get('/api/3/dealStages', [
+                'query' => $query_params
+            ]);
 
         return $req->getBody()->getContents();
     }
