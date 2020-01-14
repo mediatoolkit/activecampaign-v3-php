@@ -141,6 +141,21 @@ class Contacts extends Resource
         return $req->getBody()->getContents();
     }
 
+    public function triggerAutomation(int $contact_id, int $automation_id) {
+        $req = $this->client
+            ->getClient()
+            ->post('/api/3/contactAutomations', [
+                'json' => [
+                    'contactAutomation' => [
+                        'contact' => $contact_id,
+                        'automation' => $automation_id
+                    ]
+                ]
+            ]);
+
+        return $req->getBody()->getContents();
+    }
+
     /**
      * Add a tag to contact
      * @see https://developers.activecampaign.com/reference#create-contact-tag
