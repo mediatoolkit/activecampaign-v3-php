@@ -19,7 +19,7 @@ class SiteTracking extends Resource
      * @param string $domain_name
      * @return string
      */
-    public function addDomainToWhitelist($domain_name)
+    public function addDomain($domain_name)
     {
         $req = $this->client
             ->getClient()
@@ -96,5 +96,39 @@ class SiteTracking extends Resource
     }
 
 
+    /**
+     * Remove a domain from the site tracking whitelist
+     * @see https://developers.activecampaign.com/reference#remove-domain-from-whitelist
+     *
+     * @param string $domain_name
+     * @return string
+     */
+    public function removeDomain($domain_name)
+    {
+        $req = $this->client
+            ->getClient()
+            ->delete('api/3/siteTrackingDomains/' . $domain_name);
+
+        return 200 === $req->getStatusCode();
+    }
+
+
+    /**
+     * List of all whitelisted site tracking domains
+     * @see https://developers.activecampaign.com/reference#list-all-whitelisted-domains
+     *
+     * @param array $query_params
+     * @return string
+     */
+    public function listAllDomains(array $query_params = [])
+    {
+        $req = $this->client
+            ->getClient()
+            ->get('api/3/siteTrackingDomains', [
+                'query' => $query_params
+            ]);
+
+        return $req->getBody()->getContents();
+    }
 
 }
