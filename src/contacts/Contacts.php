@@ -141,6 +141,14 @@ class Contacts extends Resource
         return $req->getBody()->getContents();
     }
 
+    /**
+     * Add a contact to an automation
+     * @see https://developers.activecampaign.com/reference#create-new-contactautomation
+     *
+     * @param int $contact_id
+     * @param int $automation_id
+     * @return string
+     */
     public function triggerAutomation(int $contact_id, int $automation_id) {
         $req = $this->client
             ->getClient()
