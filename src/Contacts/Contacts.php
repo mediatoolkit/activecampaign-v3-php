@@ -69,6 +69,21 @@ class Contacts extends Resource
     }
 
     /**
+     * Get contact by email
+     *
+     * @param string $email
+     * @return string
+     */
+    public function getByEmail(string $email)
+    {
+        $req = $this->client
+            ->getClient()
+            ->get('/api/3/contacts?email=' . $email);
+
+        return $req->getBody()->getContents();
+    }
+
+    /**
      * Update list status for a contact
      * @see https://developers.activecampaign.com/reference#update-list-status-for-contact
      *
