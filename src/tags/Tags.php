@@ -17,7 +17,7 @@ class Tags extends Resource
      * @param string $description
      * @return string
      */
-    public function create(string $name, string $description = "")
+    public function create(string $name, string $description = null)
     {
         $req = $this->client
             ->getClient()
@@ -39,7 +39,7 @@ class Tags extends Resource
      * @param string $description
      * @return int
      */
-    public function findOrCreate(string $name, string $description = "") : int
+    public function findOrCreate(string $name, string $description = null) : int
     {
         $tagId = $this->find($name);
         if ( $tagId !== 0 ) {

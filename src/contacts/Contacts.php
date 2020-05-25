@@ -341,7 +341,7 @@ class Contacts extends Resource
      * @param array $contactNew
      * @return int
      */
-    public function findOrCreate(string $email, array $contactNew) : int
+    public function findOrCreate(string $email, array $contactNew)
     {
         $contact = $this->findEmail($email);
         $contact = json_decode($contact);
