@@ -76,6 +76,7 @@ class Tags extends Resource
      */
     public function listAll(array $query_params = [])
     {
+        $query_params = array_merge($query_params, ['limit' => '20000']);
         $req = $this->client
             ->getClient()
             ->get('/api/3/tags', [
