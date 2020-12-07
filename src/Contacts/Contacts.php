@@ -1,6 +1,6 @@
 <?php
 
-namespace Mediatoolkit\ActiveCampaign\contacts;
+namespace Mediatoolkit\ActiveCampaign\Contacts;
 
 use Mediatoolkit\ActiveCampaign\Resource;
 
