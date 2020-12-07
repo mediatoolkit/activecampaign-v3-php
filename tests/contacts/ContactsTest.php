@@ -2,7 +2,7 @@
 
 namespace Mediatoolkit\Tests\Contacts;
 
-use Mediatoolkit\ActiveCampaign\Contacts\Contacts;
+use Mediatoolkit\ActiveCampaign\contacts\Contacts;
 use Mediatoolkit\Tests\ResourceTestCase;
 
 class ContactsTest extends ResourceTestCase
