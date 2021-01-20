@@ -323,4 +323,54 @@ class Contacts extends Resource
         return 200 === $req->getStatusCode();
     }
 
+    /**
+     * @param string $email
+     * @return string
+     */
+    public function findEmail(string $email)
+    {
+        $req = $this->client
+            ->getClient()
+            ->get('/api/3/contacts/?search=' . $email);
+
+        return $req->getBody()->getContents();
+    }
+
+    /**
+     * @param string $email
+     * @param array $contactNew
+     * @return int
+     */
+    public function findOrCreate(string $email, array $contactNew)
+    {
+        $contact = $this->findEmail($email);
+        $contact = json_decode($contact);
+        if ( count($contact->contacts) > 0 ) {
+            $contactId = $contact->contacts[0]->id;
+            if ($contactId !== 0) {
+                return $contactId;
+            }
+        }
+
+        $contact = $this->create($contactNew);
+        $contact = json_decode($contact);
+        $contactId = $contact->contact->id;
+        return $contactId;
+    }
+
+
+
+    /**
+     * @param int $id
+     * @return string
+     */
+    public function listTags(int $id)
+    {
+        $req = $this->client
+            ->getClient()
+            ->get('/api/3/contacts/' . $id . '/contactTags' );
+
+        return $req->getBody()->getContents();
+    }
+
 }
