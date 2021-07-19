@@ -68,6 +68,7 @@ class Contacts extends Resource
         return $req->getBody()->getContents();
     }
 
+
     /**
      * Get a contact by email (helper function)
      * @see https://developers.activecampaign.com/reference#list-all-contacts
@@ -79,6 +80,7 @@ class Contacts extends Resource
     {
         return $this->listAll(['email' => $email]);
     }
+
 
 
     /**
