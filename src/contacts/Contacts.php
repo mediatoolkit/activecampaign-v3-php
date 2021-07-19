@@ -68,6 +68,21 @@ class Contacts extends Resource
         return $req->getBody()->getContents();
     }
 
+
+    /**
+     * Get a contact by email (helper function)
+     * @see https://developers.activecampaign.com/reference#list-all-contacts
+     *
+     * @param int $id
+     * @return string
+     */
+    public function getByEmail(string $email)
+    {
+        return $this->listAll(['email' => $email]);
+    }
+
+
+
     /**
      * Update list status for a contact
      * @see https://developers.activecampaign.com/reference#update-list-status-for-contact
@@ -137,6 +152,29 @@ class Contacts extends Resource
         $req = $this->client
             ->getClient()
             ->get('/api/3/contacts/' . $id . '/contactAutomations');
+
+        return $req->getBody()->getContents();
+    }
+
+    /**
+     * Add a contact to an automation
+     * @see https://developers.activecampaign.com/reference#create-new-contactautomation
+     *
+     * @param int $contact_id
+     * @param int $automation_id
+     * @return string
+     */
+    public function triggerAutomation(int $contact_id, int $automation_id) {
+        $req = $this->client
+            ->getClient()
+            ->post('/api/3/contactAutomations', [
+                'json' => [
+                    'contactAutomation' => [
+                        'contact' => $contact_id,
+                        'automation' => $automation_id
+                    ]
+                ]
+            ]);
 
         return $req->getBody()->getContents();
     }
