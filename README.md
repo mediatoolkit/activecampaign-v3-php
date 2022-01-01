@@ -10,7 +10,7 @@ composer require mediatoolkit/activecampaign-v3-php
 ## Basic usage:
 #### Create a client:
 
-```
+```php
 $client = new Client(
     $api_url, 
     $api_token, 
@@ -20,12 +20,12 @@ $client = new Client(
 ```
 
 #### Select Contacts endpoint:
-```
+```php
 $contacts = new Contacts($client);
 ```
 
 #### Create new contact:
-```
+```php
 $contact = $contacts->create([
     'email' => 'CONTACT_EMAIL',
     'firstName' => 'CONTACT_FIRST_NAME',
