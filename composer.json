@@ -1,5 +1,6 @@
 {
   "name": "adrennialbarrett/activecampaign-v3-php",
+  "type": "library",
   "description": "PHP Wrapper for ActiveCampaign (forked from mediatoolkit)",
   "require": {
     "guzzlehttp/guzzle": "~6.3"
