@@ -1,6 +1,7 @@
 {
-  "name": "mediatoolkit/activecampaign-v3-php",
-  "description": "PHP Wrapper for ActiveCampaign",
+  "name": "adrennialbarrett/activecampaign-v3-php",
+  "type": "library",
+  "description": "PHP Wrapper for ActiveCampaign (forked from mediatoolkit)",
   "require": {
     "guzzlehttp/guzzle": "~6.3"
   },
@@ -12,6 +13,10 @@
     {
       "name": "Mediatoolkit",
       "email": "info@mediatoolkit.com"
+    },
+    {
+      "name": "TB",
+      "email": "thomas.barrett@adrennial.global"
     }
   ],
   "autoload": {

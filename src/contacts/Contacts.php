@@ -142,6 +142,44 @@ class Contacts extends Resource
     }
 
     /**
+     * Add contact to automation
+     * @see https://developers.activecampaign.com/reference#create-new-contactautomation
+     *
+     * @param int $contact_id
+     * @param int $automation_id
+     * @return string
+     */
+    public function addToAutomation( int $contact_id, int $automation_id ){
+        $req = $this->client
+            ->getClient()
+            ->post( '/api/3/contactAutomations', [
+                'json' => [
+                    'contactAutomation' => [
+                        'contact' => $contact_id,
+                        'automation' => $automation_id
+                    ]
+                ]
+            ]);
+        return $req->getBody()->getContents();
+    }
+    
+    /**
+     * Get contact custsom field values
+     * @see https://developers.activecampaign.com/reference#retrieve-contact-field-values
+     *
+     * @param int $contact_id
+     * @return string
+     */
+    public function getCustomFieldValues( int $contact_id ){
+        $req = $this->client
+            ->getClient()
+            ->get( '/api/3/contacts/' . $contact_id . '/fieldValues' );
+
+        return $req->getBody()->getContents();
+    }
+
+
+    /**
      * Add a tag to contact
      * @see https://developers.activecampaign.com/reference#create-contact-tag
      *
